@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Listings — AUREX Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="market.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">A</div>
+        <span class="logo-text">AUREX</span>
+      </a>
+      <div class="nav-search">
+        <span class="nav-search-icon">⌕</span>
+        <input type="text" id="market-nav-search" placeholder="Search listings…" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="market.html" class="active">Browse</a></li>
+        <li><a href="#">Sell</a></li>
+        <li><a href="#">Deals</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn">♡</button>
+        <button class="nav-icon-btn">✉</button>
+        <a href="#" class="btn-gold">Sign in</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MARKET BODY ===== -->
+  <div class="market-body">
+
+    <!-- SIDEBAR FILTERS -->
+    <aside class="filter-sidebar">
+      <div class="filter-header">
+        <span class="filter-title">Filters</span>
+        <button class="filter-clear" id="clear-filters">Clear all</button>
+      </div>
+
+      <!-- Search -->
+      <div class="filter-group">
+        <div class="filter-group-label">Search</div>
+        <div class="filter-search-box">
+          <span>⌕</span>
+          <input type="text" id="sidebar-search" placeholder="Keywords…" />
+        </div>
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <div class="filter-group-label">Category</div>
+        <div class="filter-options" id="filter-categories">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Condition -->
+      <div class="filter-group">
+        <div class="filter-group-label">Condition</div>
+        <div class="filter-options">
+          <label class="filter-check">
+            <input type="checkbox" class="condition-filter" value="New" /> New
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" class="condition-filter" value="Like New" /> Like New
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" class="condition-filter" value="Excellent" /> Excellent
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" class="condition-filter" value="Good" /> Good
+          </label>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-group">
+        <div class="filter-group-label">Price Range</div>
+        <div class="price-range-row">
+          <input type="number" id="price-min" placeholder="Min $" class="price-input" />
+          <span class="price-dash">—</span>
+          <input type="number" id="price-max" placeholder="Max $" class="price-input" />
+        </div>
+        <button class="apply-price-btn btn-gold" id="apply-price" style="width:100%;justify-content:center;margin-top:10px;padding:9px;">Apply</button>
+      </div>
+
+      <!-- Badge Type -->
+      <div class="filter-group">
+        <div class="filter-group-label">Special</div>
+        <div class="filter-options">
+          <label class="filter-check">
+            <input type="checkbox" class="badge-filter" value="hot" /> 🔥 Hot Deal
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" class="badge-filter" value="verified" /> ✦ Verified
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" class="badge-filter" value="rare" /> ◆ Rare Find
+          </label>
+          <label class="filter-check">
+            <input type="checkbox" class="badge-filter" value="artisan" /> ◈ Artisan
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="market-main">
+
+      <!-- Toolbar -->
+      <div class="market-toolbar">
+        <div class="market-results" id="results-count">Loading listings…</div>
+        <div class="market-sort">
+          <span class="sort-label">Sort by</span>
+          <select class="sort-select" id="sort-select">
+            <option value="default">Most Recent</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="discount">Biggest Discount</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active filters display -->
+      <div class="active-filters" id="active-filters"></div>
+
+      <!-- Product Grid -->
+      <div class="market-grid" id="market-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <div class="empty-icon">◇</div>
+        <h3 class="empty-title">No listings found</h3>
+        <p class="empty-sub">Try adjusting your filters or search terms</p>
+        <button class="btn-gold" onclick="resetFilters()">Clear filters</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">
+          <div class="logo-mark">A</div>
+          AUREX
+        </div>
+        <p class="footer-tagline">The premium marketplace for extraordinary things.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Marketplace</div>
+        <div class="footer-col">
+          <a href="market.html">Browse Listings</a>
+          <a href="#">Categories</a>
+          <a href="#">Hot Deals</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Sellers</div>
+        <div class="footer-col">
+          <a href="#">Start Selling</a>
+          <a href="#">Seller Guide</a>
+          <a href="#">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <div class="footer-col">
+          <a href="#">Help Center</a>
+          <a href="#">Buyer Protection</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aurex Inc. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="market.js"></script>
+</body>
+</html>

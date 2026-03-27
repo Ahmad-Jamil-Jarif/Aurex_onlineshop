@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUREX — Buy & Sell Anything, Everywhere</title>
+  <meta name="description" content="AUREX is the premium marketplace to buy, sell and discover extraordinary things from people all over the world." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">A</div>
+        <span class="logo-text">AUREX</span>
+      </a>
+      <div class="nav-search">
+        <span class="nav-search-icon">⌕</span>
+        <input type="text" placeholder="Search listings, brands, categories…" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="market.html">Browse</a></li>
+        <li><a href="#">Sell</a></li>
+        <li><a href="#">Deals</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" title="Wishlist">♡</button>
+        <button class="nav-icon-btn" title="Messages">✉</button>
+        <a href="#" class="btn-gold">Sign in</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg-orb orb-1"></div>
+    <div class="hero-bg-orb orb-2"></div>
+    <div class="hero-inner">
+      <div class="hero-tag fade-in d1">✦ &nbsp;The Premium Marketplace</div>
+      <h1 class="hero-title fade-in d2">
+        Buy & sell<br><em>extraordinary</em><br>things.
+      </h1>
+      <p class="hero-sub fade-in d3">
+        From rare collectibles to everyday essentials —<br>
+        discover millions of listings from sellers worldwide.
+      </p>
+      <div class="hero-search fade-in d4">
+        <div class="hero-search-box">
+          <span class="hero-search-icon">⌕</span>
+          <input type="text" placeholder="What are you looking for today?" id="hero-search-input" />
+          <button class="hero-search-btn btn-gold" onclick="goToMarket()">Search</button>
+        </div>
+        <div class="hero-search-tags">
+          <span class="search-tag" onclick="searchFor('headphones')">🎧 Headphones</span>
+          <span class="search-tag" onclick="searchFor('sneakers')">👟 Sneakers</span>
+          <span class="search-tag" onclick="searchFor('camera')">📷 Camera</span>
+          <span class="search-tag" onclick="searchFor('watch')">⌚ Watches</span>
+          <span class="search-tag" onclick="searchFor('laptop')">💻 Laptops</span>
+        </div>
+      </div>
+      <div class="hero-trust fade-in d5" id="hero-trust">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="categories-section">
+    <div class="categories-inner">
+      <div class="s-label fade-in">Browse Categories</div>
+      <div class="categories-grid fade-in d2" id="categories-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-divider"></div>
+
+  <!-- ===== FEATURED LISTINGS ===== -->
+  <section class="listings-section" id="featured">
+    <div class="listings-inner">
+      <div class="listings-header">
+        <div>
+          <div class="s-label">Fresh Arrivals</div>
+          <h2 class="s-title">Featured <em>listings</em></h2>
+        </div>
+        <a href="market.html" class="btn-outline-gold">View all listings →</a>
+      </div>
+      <div class="products-grid" id="featured-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-divider"></div>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section">
+    <div class="how-inner">
+      <div style="text-align:center;">
+        <div class="s-label fade-in" style="justify-content:center;">How it works</div>
+        <h2 class="s-title fade-in d2" style="text-align:center;">Trading made <em>effortless.</em></h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-card fade-in d1">
+          <div class="how-num">01</div>
+          <div class="how-icon">◈</div>
+          <h3 class="how-title">List your item</h3>
+          <p class="how-desc">Snap a photo, set your price, write a description. Your listing goes live in under 2 minutes — completely free.</p>
+        </div>
+        <div class="how-connector fade-in d2">⟶</div>
+        <div class="how-card fade-in d3">
+          <div class="how-num">02</div>
+          <div class="how-icon">◎</div>
+          <h3 class="how-title">Connect & negotiate</h3>
+          <p class="how-desc">Buyers discover your listing. Chat directly, negotiate fairly, and agree on a deal — all inside AUREX.</p>
+        </div>
+        <div class="how-connector fade-in d4">⟶</div>
+        <div class="how-card fade-in d5">
+          <div class="how-num">03</div>
+          <div class="how-icon">◉</div>
+          <h3 class="how-title">Trade with confidence</h3>
+          <p class="how-desc">AUREX Buyer Protection covers every transaction. Get paid securely. Ship or meet — your choice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-divider"></div>
+
+  <!-- ===== TRENDING ===== -->
+  <section class="listings-section">
+    <div class="listings-inner">
+      <div class="listings-header">
+        <div>
+          <div class="s-label">Right now</div>
+          <h2 class="s-title">Trending <em>deals</em></h2>
+        </div>
+        <a href="market.html" class="btn-outline-gold">See all deals →</a>
+      </div>
+      <div class="products-grid" id="trending-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-divider"></div>
+
+  <!-- ===== SELL CTA ===== -->
+  <section class="sell-cta-section">
+    <div class="sell-cta-inner">
+      <div class="sell-cta-text fade-in">
+        <div class="s-label">Start earning</div>
+        <h2 class="sell-cta-title">Turn your things<br>into <em>gold.</em></h2>
+        <p class="sell-cta-sub">180,000+ sellers already trust AUREX. List for free, reach global buyers, and get paid fast with our secure checkout.</p>
+        <div class="sell-cta-actions">
+          <a href="#" class="btn-gold lg">Start selling — it's free</a>
+          <a href="#" class="btn-ghost">Learn more</a>
+        </div>
+      </div>
+      <div class="sell-cta-stats fade-in d3">
+        <div class="sell-stat">
+          <div class="sell-stat-value">$0</div>
+          <div class="sell-stat-label">Listing fee</div>
+        </div>
+        <div class="sell-stat-divider"></div>
+        <div class="sell-stat">
+          <div class="sell-stat-value">3%</div>
+          <div class="sell-stat-label">Only on sale</div>
+        </div>
+        <div class="sell-stat-divider"></div>
+        <div class="sell-stat">
+          <div class="sell-stat-value">24h</div>
+          <div class="sell-stat-label">Fast payout</div>
+        </div>
+        <div class="sell-stat-divider"></div>
+        <div class="sell-stat">
+          <div class="sell-stat-value">48</div>
+          <div class="sell-stat-label">Countries</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">
+          <div class="logo-mark">A</div>
+          AUREX
+        </div>
+        <p class="footer-tagline">The premium marketplace for extraordinary things. Buy, sell, and discover worldwide.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Marketplace</div>
+        <div class="footer-col">
+          <a href="market.html">Browse Listings</a>
+          <a href="#">Categories</a>
+          <a href="#">Hot Deals</a>
+          <a href="#">New Arrivals</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Sellers</div>
+        <div class="footer-col">
+          <a href="#">Start Selling</a>
+          <a href="#">Seller Guide</a>
+          <a href="#">Pricing</a>
+          <a href="#">Seller Dashboard</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <div class="footer-col">
+          <a href="#">Help Center</a>
+          <a href="#">Buyer Protection</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Safety Tips</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aurex Inc. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
